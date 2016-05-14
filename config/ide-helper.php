@@ -55,8 +55,8 @@ return array(
     */
 
     'extra' => array(
-        'Eloquent' => array('Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'),
-        'Session' => array('Illuminate\Session\Store'),
+        'Eloquent' => array(Illuminate\Database\Eloquent\Builder::class, Illuminate\Database\Query\Builder::class),
+        'Session' => array(Illuminate\Session\Store::class),
     ),
 
     'magic' => array(
@@ -113,7 +113,9 @@ return array(
     |
     */
     'custom_db_types' => array(
-
+        "postgresql" => array(
+            "jsonb" => "json_array",
+        )
     ),
 
 );

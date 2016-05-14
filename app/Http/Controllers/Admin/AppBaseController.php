@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use InfyOm\Generator\Utils\ResponseUtil;
 use Response;
 
@@ -18,6 +19,13 @@ use Response;
  */
 class AppBaseController extends Controller
 {
+
+    /**
+     * @param $result
+     * @param $message
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function sendResponse($result, $message)
     {
         return Response::json(ResponseUtil::makeResponse($message, $result));

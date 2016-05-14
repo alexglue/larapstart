@@ -12,7 +12,7 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-
+    'pagination.listed' => 'Показана :count запись из :total|Показано :count записи из :total|Показано :count записей из :total',
     'previous' => '&laquo; Previous',
     'next'     => 'Next &raquo;',
 

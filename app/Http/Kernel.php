@@ -10,6 +10,9 @@ use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
 use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Zizaco\Entrust\Middleware\EntrustAbility;
+use Zizaco\Entrust\Middleware\EntrustPermission;
+use Zizaco\Entrust\Middleware\EntrustRole;
 
 /**
  * Class Kernel
@@ -56,10 +59,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => Middleware\Authenticate::class,
+        'auth'       => Middleware\Authenticate::class,
         'auth.basic' => AuthenticateWithBasicAuth::class,
-        'can' => Authorize::class,
-        'guest' => Middleware\RedirectIfAuthenticated::class,
-        'throttle' => ThrottleRequests::class,
+        'can'        => Authorize::class,
+        'guest'      => Middleware\RedirectIfAuthenticated::class,
+        'throttle'   => ThrottleRequests::class,
+        'role'       => EntrustRole::class,
+        'permission' => EntrustPermission::class,
+        'ability'    => EntrustAbility::class,
     ];
 }

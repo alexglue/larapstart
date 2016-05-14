@@ -1,0 +1,1 @@
+<th>{{trans('admin.model.$MODEL_NAME_CAMEL$.attributes.$FIELD_NAME$')}}</th>
