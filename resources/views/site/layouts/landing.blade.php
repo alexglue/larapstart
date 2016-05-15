@@ -38,7 +38,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">LarAppStart 1.0</div>
+        <div class="title">{{config('common.app.name')}} 1.0</div>
     </div>
 </div>
 </body>
