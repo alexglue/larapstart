@@ -34,7 +34,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
+        <a href="{{ url('/home') }}"><b>LarApp</b>Start</a>
     </div>
 
     <!-- /.login-logo -->
@@ -68,7 +68,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="remember"> Remember Me
+                            <input type="checkbox" name="remember" value=""> Remember Me
                         </label>
                     </div>
                 </div>

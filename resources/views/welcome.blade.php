@@ -1,2 +1,0 @@
-@extends('site.layouts.app')
-

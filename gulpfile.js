@@ -15,4 +15,9 @@ elixir(function(mix) {
     mix.less('app.less');
     mix.less('admin-lte/AdminLTE.less');
     mix.less('bootstrap/bootstrap.less');
+
+    mix.copy('resources/shared/favicon.ico', 'public/favicon.ico')
+        .copy('resources/shared/index.php', 'public/index.php')
+        .copy('resources/shared/robots.txt', 'public/robots.txt')
+        .copy('resources/assets/admin/**', 'public/js/admin/');
 });

@@ -12,7 +12,8 @@
         "infyomlabs/adminlte-templates": "dev-master",
         "league/fractal": "^0.13.0",
         "zizaco/entrust": "5.2.x-dev",
-        "yajra/laravel-datatables-oracle": "~6.0"
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "acacha/admin-lte-template-laravel": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

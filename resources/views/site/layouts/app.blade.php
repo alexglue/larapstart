@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Larapstart</title>
+    <title>LarAppStart</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -29,9 +29,6 @@
         <div class="content-wrapper">
             @yield('content')
         </div>
-
-        <!-- Main Footer -->
-        @include('site.layouts.partials.footer')
 
     </div>
             <!-- jQuery 2.1.4 -->
