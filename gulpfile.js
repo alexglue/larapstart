@@ -17,7 +17,7 @@ elixir(function(mix) {
     mix.less('bootstrap/bootstrap.less');
 
     mix.copy('resources/shared/favicon.ico', 'public/favicon.ico')
-        .copy('resources/shared/index.php', 'public/index.php')
+        .copy('resources/index.php', 'public/index.php')
         .copy('resources/shared/robots.txt', 'public/robots.txt')
-        .copy('resources/assets/admin/**', 'public/js/admin/');
+        .copy('resources/assets/admin/**', 'public/admin/');
 });

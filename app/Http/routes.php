@@ -1,5 +1,10 @@
 <?php
 
+    Route::get('/home', function ()
+    {
+        return Redirect::to('/admin');
+    });
+
     Route::get('/', function ()
     {
         return view('index');
