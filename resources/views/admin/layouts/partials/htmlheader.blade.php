@@ -8,6 +8,7 @@
     <link href="{{ asset('/adm/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/adm/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/adm/plugins/iCheck/square/_all.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/adm/css/main.css') }}" rel="stylesheet" type="text/css" />
     <!-- JQUERY MISSING!! -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
