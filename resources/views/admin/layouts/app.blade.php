@@ -14,7 +14,7 @@
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="{{config('common.app.admin.skin')}} sidebar-mini">
+<body class="{{config('common.app.admin.skin')}} sidebar-mini sidebar-collapse fixed">
 <div class="wrapper">
 
     @include('admin.layouts.partials.mainheader')
