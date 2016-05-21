@@ -1,11 +1,10 @@
 @extends('admin.layouts.app')
 
+@section('contentheader_title')
+    {{trans('admin.models.$MODEL_NAME_CAMEL$.singular')}}
+@endsection
+
 @section('content')
-    <section class="content-header">
-        <h1>
-            {{trans('admin.models.$MODEL_NAME_CAMEL$.singular')}}
-        </h1>
-    </section>
     <div class="content">
         <div class="box box-primary">
             <div class="box-body">
