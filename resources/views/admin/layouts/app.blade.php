@@ -39,9 +39,8 @@
 
 </div><!-- ./wrapper -->
 
-@section('app_scripts')
-    @include('admin.layouts.partials.scripts')
-@show
+@include('admin.layouts.partials.scripts')
+@yield('scripts')
 
 </body>
 </html>
