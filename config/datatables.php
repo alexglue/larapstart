@@ -11,5 +11,5 @@ return [
         'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
     ],
 
-    'script_template' => 'datatables::script',
+    'script_template' => 'admin.common.datatables.script',
 ];
