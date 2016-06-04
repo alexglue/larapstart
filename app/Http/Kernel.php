@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'role'       => EntrustRole::class,
         'permission' => EntrustPermission::class,
         'ability'    => EntrustAbility::class,
+        'admin'      => Middleware\Admin\RedirectIfNotAdmin::class,
     ];
 }

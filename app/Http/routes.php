@@ -1,31 +1,20 @@
 <?php
 
-    Route::get('/home', function ()
-    {
-        return Redirect::to('/admin');
-    });
-
     Route::get('/', function ()
     {
         return view('index');
     });
 
-    Route::group(['namespace' => 'Auth'], function()
+    Route::group(['prefix' => 'admin'], function()
     {
-        Route::get('login', 'AuthController@getLogin');
-        Route::post('login', 'AuthController@postLogin');
-
-        Route::get('logout', 'AuthController@logout');
-
-        // Registration Routes...
-        Route::get('register', 'AuthController@getRegister');
-        Route::post('register', 'AuthController@postRegister');
+        Route::get('login','Admin\Auth\AuthController@showLoginForm');
+        Route::post('login','Admin\Auth\AuthController@login');
 
         // Password Reset Routes...
-        Route::post('password/email', 'PasswordController@postEmail');
+        Route::post('password/email', 'Admin\Auth\PasswordController@postEmail');
 
-        Route::get('password/reset', 'PasswordController@getEmail');
-        Route::post('password/reset', 'PasswordController@postReset');
+        Route::get('password/reset', 'Admin\Auth\PasswordController@getEmail');
+        Route::post('password/reset', 'Admin\Auth\PasswordController@postReset');
 
-        Route::get('password/reset/{token}', 'PasswordController@getReset');
+        Route::get('password/reset/{token}', 'Admin\Auth\PasswordController@getReset');
     });

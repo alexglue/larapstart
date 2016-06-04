@@ -5,6 +5,7 @@ namespace App\Models;
 //use Eloquent as Model;
 use Illuminate\Foundation\Auth\User as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 /**
  * @SWG\Definition(
@@ -59,11 +60,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Model
 {
     use SoftDeletes;
+    use EntrustUserTrait {
+        EntrustUserTrait::restore insteadof SoftDeletes;
+    }
 
     /**
      * @var string table
      */
-    public $table = 'users';
+    public $table = 'user';
 
 
     /**

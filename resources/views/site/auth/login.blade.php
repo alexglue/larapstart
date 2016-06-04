@@ -8,7 +8,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/admin') }}"><b>{{config('common.app.name')}}</b></a>
+            <a href="{{ url('/') }}"><b>{{config('common.app.name')}}</b></a>
         </div><!-- /.login-logo -->
 
     @if (count($errors) > 0)
@@ -61,7 +61,7 @@
         </div>
     </form>
 
-    @include('auth.partials.social_login')
+    @include('site.auth.partials.social_login')
 
     <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
     <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
@@ -70,7 +70,7 @@
 
 </div><!-- /.login-box -->
 
-    @include('auth.partials.scripts_auth')
+    @include('site.auth.partials.scripts_auth')
 
     <script>
         $(function () {

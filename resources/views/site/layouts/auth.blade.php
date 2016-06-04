@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-@include('auth.partials.htmlheader')
+@include('site.auth.partials.htmlheader')
 
 @yield('content')
 

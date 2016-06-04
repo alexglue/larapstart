@@ -24,8 +24,7 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "infyomlabs/laravel-generator": "dev-master",
         "jlapp/swaggervel": "dev-master",
-        "infyomlabs/swagger-generator": "dev-master",
-        "infyomlabs/generator-builder": "dev-master"
+        "infyomlabs/swagger-generator": "dev-master"
     },
     "autoload": {
         "classmap": [

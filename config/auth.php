@@ -37,12 +37,16 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+            'driver'   => 'session',
+            'provider' => 'user',
+        ],
+        'admin' => [
+            'driver'   => 'session',
+            'provider' => 'admin',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver'   => 'token',
             'provider' => 'users',
         ],
     ],
@@ -65,16 +69,17 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'user' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-            'table' => 'users'
+            'model'  => App\Models\User::class,
+            'table'  => 'user'
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admin' => [
+            'driver' => 'eloquent',
+            'model'  => App\Models\Admin\User::class,
+            'table'  => 'user',
+        ],
     ],
 
     /*
@@ -98,9 +103,15 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'user',
             'email' => 'auth.emails.password',
-            'table' => 'password_resets',
+            'table' => 'password_reset',
+            'expire' => 60,
+        ],
+        'admin' => [
+            'provider' => 'admin',
+            'email' => 'auth.emails.password',
+            'table' => 'password_reset',
             'expire' => 60,
         ],
     ],

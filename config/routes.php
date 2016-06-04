@@ -4,35 +4,35 @@
         'defaults' =>
         [
             'namespace'  => 'App\Http\Controllers',
+            'filename'   => 'routes.php',
             'middleware' => 'web',
-            'filename'   => 'routes.php'
         ],
         'groups' =>
         [
             'main' =>
             [
                 'namespace'  => 'App\Http\Controllers',
+                'filename'   => 'routes.php',
                 'middleware' => 'web',
-                'filename'   => 'routes.php'
             ],
             'site' =>
             [
                 'namespace'  => 'App\Http\Controllers\Site',
                 'filename'   => 'routes.site.php',
-                'middleware' => 'web'
+                'middleware' => 'web',
             ],
             'api' =>
             [
                 'namespace'  => 'App\Http\Controllers\API',
                 'filename'   => 'routes.api.php',
                 'middleware' => 'api',
-                'prefix'     => 'api'
+                'prefix'     => 'api/v1'
             ],
             'admin' =>
             [
                 'namespace'  => 'App\Http\Controllers\Admin',
                 'filename'   => 'routes.admin.php',
-                'middleware' => 'web',
+                'middleware' => ['web', 'admin', 'role:admin'],
                 'prefix'     => 'admin'
             ]
         ]

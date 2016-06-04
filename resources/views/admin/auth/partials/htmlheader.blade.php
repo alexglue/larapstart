@@ -1,4 +1,5 @@
 <head>
+    <!-- todo: refactor this styles as dedicated site styles-->
     <meta charset="UTF-8">
     <title>{{config('common.app.name')}}::@yield('htmlheader_title', 'Your title here') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>

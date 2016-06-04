@@ -13,7 +13,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
+        Commands\Admin\InstallCommand::class,
+        //Commands\Admin\AdminAddRoleCommand::class,
+        //Commands\Admin\AdminAddPermissionCommand::class,
+        //Commands\Admin\AdminAddUserCommand::class,
     ];
 
     /**

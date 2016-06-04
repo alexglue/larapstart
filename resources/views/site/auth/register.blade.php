@@ -9,7 +9,7 @@
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/admin') }}"><b>{{config('common.app.name')}}</b> Admin</a>
+            <a href="{{ url('/') }}"><b>{{config('common.app.name')}}</b> Admin</a>
         </div>
 
         @if (count($errors) > 0)
@@ -86,13 +86,13 @@
                 </div>
             </form>
 
-            @include('auth.partials.social_login')
+            @include('site.auth.partials.social_login')
 
             <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
         </div><!-- /.form-box -->
     </div><!-- /.register-box -->
 
-    @include('auth.partials.scripts_auth')
+    @include('site.auth.partials.scripts_auth')
 
     <script>
         $(function () {
