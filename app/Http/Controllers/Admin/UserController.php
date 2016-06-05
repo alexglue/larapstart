@@ -168,7 +168,7 @@ class UserController extends BaseController
     public function updatePassword(UpdatePasswordRequest $request, $id)
     {
         $user = $this->userRepository->findWithoutFail($id);
-        $this->userRepository->updatePassword($user->id, $request->all());
+        $this->userRepository->updatePassword($user->id, $request->get('password'));
 
         flash()->success(trans('laravel-admin.passwordUpdated'));
 

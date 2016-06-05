@@ -3,11 +3,13 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Admin\User;
+use Illuminate\Support\Facades\Session;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
  * Class UserRepository
  *
+ * @property $model User
  * @package App\Repositories\Admin
  */
 class UserRepository extends BaseRepository
@@ -31,17 +33,21 @@ class UserRepository extends BaseRepository
         return User::class;
     }
 
-    /**
-     * @param $user
-     * @param $data
-     * @return bool
-     */
-    public function updatePassword($user, $data)
-    {
-        $u           = $this->model->find($user);
-        $u->password = bcrypt($data['password']);
-        $u->save();
 
-        return $u;
+    /**
+     * @param $userId
+     * @param $password
+     *
+     * @return bool
+     * @internal param $data
+     *
+     */
+    public function updatePassword($userId, $password)
+    {
+        /** @var User $user */
+        $user           = $this->model->findOrFail( $userId);
+        $user->password = bcrypt($password);
+
+        return $user->save();
     }
 }
