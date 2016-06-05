@@ -1,6 +1,3 @@
-<li class="{{ Request::is('/generator_builder*') ? 'active' : '' }}">
-    <a href="/generator_builder"><i class="fa fa-edit"></i><span>Generator Builder</span></a>
-</li>
 <li class="header">HEADER</li>
 <!-- Optionally, you can add icons to the links -->
 <li class="active"><a href="{{ url('/admin') }}"><i class='fa fa-link'></i> <span>Home</span></a></li>
@@ -13,10 +10,6 @@
     </ul>
 </li>
 <li class="{{ Request::is('users*') ? 'active' : '' }}">
-    <a href="{!! route('admin.users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
-</li>
-
-<li class="{{ Request::is('users*') ? 'active' : '' }}">
-    <a href="{!! route('admin.users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
+    <a href="{!! route('admin.users.index') !!}"><i class="fa fa-user"></i><span>Users</span></a>
 </li>
 
