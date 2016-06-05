@@ -171,6 +171,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
         #llum_providers
 
     ],
@@ -231,6 +232,7 @@ return [
         #llum_aliases
 
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class
 
     ],
 
