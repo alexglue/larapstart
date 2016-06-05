@@ -172,6 +172,7 @@ return [
         InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         #llum_providers
 
     ],
@@ -229,6 +230,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         #llum_aliases
 
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,

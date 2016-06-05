@@ -4,5 +4,5 @@
         @yield('contentheader_title', 'Page Header here')
         <small>@yield('contentheader_description')</small>
     </h1>
-    @include('admin.layouts.partials.breadcrumbs')
+    {!! Breadcrumbs::render() !!}
 </section>

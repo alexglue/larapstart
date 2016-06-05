@@ -1,13 +1,13 @@
 <?php
 
     //Login Routes...
-    Route::get('logout','Auth\AuthController@logout');
+    Route::get('logout', ['as' => 'admin.logout', 'uses' => 'Auth\AuthController@logout']);
 
     // Registration Routes...
     //Route::get('register', 'Auth\AuthController@showRegistrationForm');
     //Route::post('register', 'Auth\AuthController@register');
 
-    Route::get('/', 'DashboardController@index');
+    Route::get('/', ['as' => 'admin.dashboard', 'uses' => 'DashboardController@index']);
 
     Route::resource('users', 'UserController');
 
