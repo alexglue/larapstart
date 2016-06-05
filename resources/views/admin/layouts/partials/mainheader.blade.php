@@ -34,7 +34,7 @@
                                     <a href="#">
                                         <div class="pull-left">
                                             <!-- User Image -->
-                                            <img src="/adm/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
+                                            <img src="{{ Gravatar::get(admin()->email) }}" class="img-circle" alt="User Image"/>
                                         </div>
                                         <!-- Message title and timestamp -->
                                         <h4>
@@ -116,17 +116,17 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="/adm/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                            <img src="{{ Gravatar::get(admin()->email) }}" class="user-image" alt="User Image"/>
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
+                            <span class="hidden-xs">{{ admin()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="/adm/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                <img src="{{ Gravatar::get(admin()->email) }}" class="img-circle" alt="User Image" />
                                 <p>
-                                    {{ Auth::guard('admin')->user()->name }}
-                                    <small>Member since Nov. 2012</small>
+                                    {{ admin()->name }}
+                                    <small>Member since {{ admin()->created_at->toDateString() }}</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
