@@ -68,6 +68,13 @@
     });
 
     Breadcrumbs::register(
+        'admin.roles.show', function ( Generator $breadcrumbs, $roleId ) {
+        $breadcrumbs->parent( 'admin.roles.index' );
+        $breadcrumbs->push( trans( 'admin.models.roles.actions.show' ), route( 'admin.roles.show', $roleId ), [ 'icon' => 'fa-user' ] );
+    });
+
+
+    Breadcrumbs::register(
         'admin.permissions.edit', function ( Generator $breadcrumbs, $permissionId ) {
         $breadcrumbs->parent( 'admin.permissions.index' );
         $breadcrumbs->push( trans( 'admin.models.permission.actions.edit' ), route( 'admin.permissions.edit', $permissionId ), [ 'icon' => 'fa-user' ] );
