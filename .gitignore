@@ -1,6 +1,5 @@
 vendor
 node_modules
-public/storage
 .env
 _ide_helper.php
 .phpstorm.meta.php
