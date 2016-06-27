@@ -39,3 +39,4 @@ http://labs.infyom.com/laravelgenerator/docs/getting-started/installation
 
 //TODO https://github.com/SocialiteProviders/Laravel-Example
 //TODO https://tuts.codingo.me/laravel-social-and-email-authentication
+//TODO https://github.com/jeremykenedy/laravel-admin/blob/master/ watch this, it might be interesting

@@ -14,3 +14,7 @@ php artisan infyom:scaffold User --fromTable --tableName=users --save --prefix=a
 ## How to add new provider and alias:
 llum provider 'DaveJamesMiller\Breadcrumbs\ServiceProvider::class'
 llum alias Breadcrumbs 'DaveJamesMiller\Breadcrumbs\Facade::class'
+
+## assets:
+bower -S i font-awesome
+gulp
