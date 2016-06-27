@@ -19,4 +19,18 @@ class Role extends EntrustRole
         'description'
     ];
 
+    /**
+     * @var array casts
+     */
+    protected $casts = [
+        'id' => 'integer',
+        'name' => 'string',
+        'display_name' => 'string',
+        'description' => 'string'
+    ];
+
+    /**
+     * @var array rules
+     */
+    public $rules = [];
 }

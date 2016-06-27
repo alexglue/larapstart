@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\CreateUserRequest;
 use App\Http\Requests\Admin\UpdatePasswordRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Repositories\Admin\UserRepository;
+use App\Services\Acl\AclManager;
 use Flash;
 use Response;
 
@@ -19,7 +20,7 @@ use Response;
 class UserController extends BaseController
 {
     /** @var  UserRepository */
-    private $userRepository;
+    private $repository;
 
 
     /**
@@ -27,7 +28,7 @@ class UserController extends BaseController
      */
     public function __construct(UserRepository $userRepo)
     {
-        $this->userRepository = $userRepo;
+        $this->repository = $userRepo;
     }
 
     /**
@@ -62,7 +63,7 @@ class UserController extends BaseController
     {
         $input = $request->all();
 
-        $user = $this->userRepository->create($input);
+        $user = $this->repository->create($input);
 
         Flash::success('User saved successfully.');
 
@@ -78,7 +79,7 @@ class UserController extends BaseController
      */
     public function show($id)
     {
-        $user = $this->userRepository->findWithoutFail($id);
+        $user = $this->repository->findWithoutFail($id);
 
         if (empty($user)) {
             Flash::error('User not found');
@@ -98,7 +99,7 @@ class UserController extends BaseController
      */
     public function edit($id)
     {
-        $user = $this->userRepository->findWithoutFail($id);
+        $user = $this->repository->findWithoutFail($id);
 
         if (empty($user)) {
             Flash::error('User not found');
@@ -119,7 +120,7 @@ class UserController extends BaseController
      */
     public function update($id, UpdateUserRequest $request)
     {
-        $user = $this->userRepository->findWithoutFail($id);
+        $user = $this->repository->findWithoutFail($id);
 
         if (empty($user)) {
             Flash::error('User not found');
@@ -127,7 +128,7 @@ class UserController extends BaseController
             return redirect(route('admin.users.index'));
         }
 
-        $user = $this->userRepository->update($request->all(), $id);
+        $user = $this->repository->update($request->all(), $id);
 
         Flash::success('User updated successfully.');
 
@@ -143,7 +144,7 @@ class UserController extends BaseController
      */
     public function destroy($id)
     {
-        $user = $this->userRepository->findWithoutFail($id);
+        $user = $this->repository->findWithoutFail($id);
 
         if (empty($user)) {
             Flash::error('User not found');
@@ -151,7 +152,7 @@ class UserController extends BaseController
             return redirect(route('admin.users.index'));
         }
 
-        $this->userRepository->delete($id);
+        $this->repository->delete($id);
 
         Flash::success('User deleted successfully.');
 
@@ -167,17 +168,23 @@ class UserController extends BaseController
      */
     public function updatePassword(UpdatePasswordRequest $request, $id)
     {
-        $user = $this->userRepository->findWithoutFail($id);
-        $this->userRepository->updatePassword($user->id, $request->get('password'));
+        $user = $this->repository->findWithoutFail($id);
+        $this->repository->updatePassword($user->id, $request->get('password'));
 
         flash()->success(trans('laravel-admin.passwordUpdated'));
 
         return redirect()->back();
     }
 
+
+    /**
+     * @param AclManager $aclManager
+     *
+     * @return mixed
+     */
     public function me(AclManager $aclManager)
     {
-        $user = $this->model->findOrFail(\Auth::user()->id);
+        $user = $this->repository->findWithoutFail(user()->id);
 
         return view('admin.users.edit')
             ->with('user', $user)
@@ -185,8 +192,14 @@ class UserController extends BaseController
             ->with('activeMenu', 'sidebar.Users');
     }
 
-    public function meEdit(Requests\UpdateUserRequest $request)
+
+    /**
+     * @param UpdateUserRequest $request
+     *
+     * @return Response
+     */
+    public function meEdit(UpdateUserRequest $request)
     {
-        return $this->update($request, \Auth::user()->id);
+        return $this->update(user()->id, $request);
     }
 }

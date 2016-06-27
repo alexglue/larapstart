@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.error')
 
 @section('htmlheader_title')
     Server error
@@ -8,7 +8,7 @@
     500 Error Page
 @endsection
 
-@section('$contentheader_description')
+@section('contentheader_description')
 @endsection
 
 @section('main-content')

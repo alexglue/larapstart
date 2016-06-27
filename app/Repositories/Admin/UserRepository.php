@@ -2,8 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin\User;
-use Illuminate\Support\Facades\Session;
+use App\Models\User;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**

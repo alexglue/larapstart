@@ -40,7 +40,7 @@ class Installer
 		$model = config( 'entrust.role' );
 		$role  = new $model;
 
-		return $role->create([
+		return $role->firstOrCreate([
 			'name'         => 'admin',
 			'display_name' => 'System Administrator',
 			'description'  => 'The General admin user'
@@ -57,14 +57,18 @@ class Installer
     private function createAdminUser($email, $password)
 	{
 		/** @var $user User */
-		$model = config( 'auth.providers.admin.model' );
+		$model = config( 'auth.providers.user.model' );
 		$user  = new $model;
 
-		return $user->create([
+		$user = $user->firstOrNew(['email' => $email]);
+
+		$user->fill([
 			 'name'     => 'Administrator',
 			 'email'    => $email,
 			 'password' => bcrypt( $password )
-		]);
+		])->save();
+
+		return $user;
 	}
 
 
@@ -77,41 +81,45 @@ class Installer
 		$result 	 = [];
 		$permissions = [
 			[
-				'name' 		   => 'roles-crud',
-				'display_name' => 'Управление ролями',
+				'name' 		   => 'admin.access',
+				'display_name' => 'Access to admin area',
+				'description'  => 'Ability to access to admin area'
+			],
+			[
+				'name' 		   => 'admin.roles.crud',
+				'display_name' => 'Roles management',
 				'description'  => 'Права на создание, редактирование и удаление ролей'
 			],
 			[
-				'name' 		   => 'permissions-crud',
-				'display_name' => 'Управление правами доступа',
+				'name' 		   => 'admin.permissions.crud',
+				'display_name' => 'Permissions management',
 				'description'  => 'Права на создание, редактирование и удаление прав доступа'
 			],
-
 			[
-				'name' 		   => 'edit-users',
-				'display_name' => 'Редактирование пользователя',
+				'name' 		   => 'admin.users.edit',
+				'display_name' => 'Edit users',
 				'description'  => 'Права доступа к редактированию данных пользователя'
 			],
 			[
-				'name' 		   => 'create-users',
-				'display_name' => 'Создание пользователя',
+				'name' 		   => 'admin.users.create',
+				'display_name' => 'Create users',
 				'description'  => 'Права доступа на создание нового пользователя'
 			],
 			[
-				'name' 		   => 'delete-users',
-				'display_name' => 'Удаление пользователя',
+				'name' 		   => 'admin.users.delete',
+				'display_name' => 'Delete users',
 				'description'  => 'Права доступа на удаление пользователей'
 			],
 			[
-				'name' 		   => 'list-users',
-				'display_name' => 'Просмотр списка пользователей',
+				'name' 		   => 'admin.users.list',
+				'display_name' => 'List users',
 				'description'  => 'Права доступа на просмотр и управление списком пользователей'
 			]
 		];
 
 		foreach($permissions as $fields)
 		{
-			$result[] = (new Permission())->create($fields);
+			$result[] = (new Permission())->firstOrCreate($fields);
 		}
 
 		return $result;

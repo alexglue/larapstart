@@ -32,7 +32,7 @@
             [
                 'namespace'  => 'App\Http\Controllers\Admin',
                 'filename'   => 'routes.admin.php',
-                'middleware' => ['web', 'admin', 'role:admin'],
+                'middleware' => ['web', 'admin'],
                 'prefix'     => 'admin'
             ]
         ]

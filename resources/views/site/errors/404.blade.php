@@ -1,4 +1,4 @@
-@extends('site.layouts.app')
+@extends('site.layouts.error')
 
 @section('htmlheader_title')
     Page not found
@@ -11,7 +11,7 @@
 @section('contentheader_description')
 @endsection
 
-@section('main-content')
+@section('content')
 
 <div class="error-page">
     <h2 class="headline text-yellow"> 404</h2>

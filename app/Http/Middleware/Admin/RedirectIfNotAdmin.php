@@ -3,6 +3,7 @@
     namespace App\Http\Middleware\Admin;
     use Closure;
     use \Auth;
+    use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
     /**
      * Class RedirectIfNotAdmin
@@ -17,7 +18,7 @@
          * @param  string|null  $guard
          * @return mixed
          */
-        public function handle($request, Closure $next, $guard = 'admin')
+        public function handle($request, Closure $next, $guard = null)
         {
             if (Auth::guard($guard)->guest())
             {
@@ -27,8 +28,13 @@
                 }
                 else
                 {
-                    return redirect()->guest('/admin/login');
+                    return redirect()->guest('login');
                 }
+            }
+
+            if(user()->cant('admin.access'))
+            {
+                throw new AccessDeniedHttpException('Unauthorized');
             }
 
             return $next($request);

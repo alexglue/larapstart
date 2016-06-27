@@ -48,7 +48,7 @@ return array(
      |
      */
 
-    'include_vendors' => false,
+    'include_vendors' => true,
 
     /*
      |--------------------------------------------------------------------------

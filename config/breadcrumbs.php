@@ -2,6 +2,6 @@
 
 return [
 
-	'view' => 'admin.layouts.partials.breadcrumbs',
+	'view' => 'admin.common.breadcrumbs',
 
 ];

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.error')
 
 @section('htmlheader_title')
     Service unavailable
@@ -8,7 +8,7 @@
     503 Error Page
 @endsection
 
-@section('$contentheader_description')
+@section('contentheader_description')
 @endsection
 
 @section('main-content')

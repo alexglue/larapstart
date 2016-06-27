@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+/**
+ * Class Handler
+ *
+ * @package App\Exceptions
+ */
 class Handler extends ExceptionHandler
 {
     /**
@@ -45,6 +50,35 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
+        if ($this->isHttpException($e))
+        {
+            return $this->renderHttpException($e);
+        }
+        else
+        {
+            return parent::render($request, $e);
+        }
+    }
+
+    /**
+     * Render the given HttpException.
+     *
+     * @param  \Symfony\Component\HttpKernel\Exception\HttpException  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderHttpException(HttpException $e)
+    {
+        $status = $e->getStatusCode();
+
+        $relative = request()->is('admin/*') && user()->can('admin.*') ? 'admin' : 'site';
+
+        if (view()->exists("{$relative}.errors.{$status}"))
+        {
+            return response()->view("{$relative}.errors.{$status}", ['exception' => $e], $status, $e->getHeaders());
+        }
+        else
+        {
+            return $this->convertExceptionToResponse($e);
+        }
     }
 }

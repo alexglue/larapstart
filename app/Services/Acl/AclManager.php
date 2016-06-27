@@ -19,7 +19,7 @@ class AclManager
      */
 	public function __construct()
 	{
-		$model      = \Config::get('auth.providers.users.model');
+		$model      = \Config::get('auth.providers.user.model');
 		$this->user = new $model;
 	}
 

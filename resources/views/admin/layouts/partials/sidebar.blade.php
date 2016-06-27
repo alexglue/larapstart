@@ -8,10 +8,10 @@
         @if (! Auth::guest())
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{Gravatar::get(admin()->email)}}" class="img-circle" alt="User Image" />
+                    <img src="{{Gravatar::get(user()->email)}}" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>{{ admin()->name }}</p>
+                    <p>{{ user()->name }}</p>
                     <!-- Status -->
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
