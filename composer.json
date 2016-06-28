@@ -69,6 +69,8 @@
             "php artisan cache:clear",
             "php artisan ide-helper:generate",
             "php artisan optimize",
+            "npm i",
+            "bower install",
             "gulp"
         ]
     },
