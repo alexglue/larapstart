@@ -1,6 +1,6 @@
 <?php
 
-return [
+    return [
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_SCHEMA', 'http') . '://' . env('APP_DOMAIN', 'localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -173,6 +173,7 @@ return [
         InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        SocialiteProviders\Manager\ServiceProvider::class
         #llum_providers
 
     ],
@@ -234,7 +235,8 @@ return [
         #llum_aliases
 
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class
+        'Gravatar'  => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
