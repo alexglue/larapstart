@@ -3,6 +3,9 @@
 namespace App\Models;
 
 //use Eloquent as Model;
+use App\Http\Middleware\CacheLastUserActivity;
+use Cache;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -128,4 +131,23 @@ class User extends Model
         'email'    => 'required|email',
         'password' => 'required|max:255'
     ];
+
+    /**
+     * Returns the user session that belongs to this entry.
+     * @return UserSession|Builder
+     */
+    public function session()
+    {
+        return $this->hasMany(UserSession::class);
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isOnline()
+    {
+        //return $this->session()->orderBy('last_activity', 'desc')->first()->isActive();
+        return CacheLastUserActivity::keyExists($this->id);
+    }
 }

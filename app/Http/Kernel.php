@@ -44,6 +44,7 @@ class Kernel extends HttpKernel
             StartSession::class,
             ShareErrorsFromSession::class,
             Middleware\VerifyCsrfToken::class,
+            Middleware\CacheLastUserActivity::class,
         ],
 
         'api' => [

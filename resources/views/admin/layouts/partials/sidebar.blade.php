@@ -13,7 +13,11 @@
                 <div class="pull-left info">
                     <p>{{ user()->name }}</p>
                     <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    @if(user()->isOnline())
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    @else
+                        <a href="#"><i class="fa fa-circle text-default"></i> Offline</a>
+                    @endif
                 </div>
             </div>
         @endif
