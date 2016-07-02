@@ -35,6 +35,12 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'vkontakte' => [
+        'client_id'     => env('VK_APP_ID'),
+        'client_secret' => env('VK_APP_SECRET'),
+        'redirect'      => env('APP_SCHEMA', 'http') . '://' . env('APP_DOMAIN', 'localhost') . '/auth/vkontakte/callback/',
+    ]
+
     /*
     | Acacha Llum services...
     |

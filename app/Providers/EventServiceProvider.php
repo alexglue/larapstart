@@ -4,7 +4,15 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use SocialiteProviders\Manager\SocialiteWasCalled;
+use SocialiteProviders\VKontakte\VKontakteExtendSocialite;
 
+
+/**
+ * Class EventServiceProvider
+ *
+ * @package App\Providers
+ */
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -13,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        SocialiteWasCalled::class => [
+            VkontakteExtendSocialite::class
+        ],
         'App\Events\SomeEvent' => [
             'App\Listeners\EventListener',
         ],
