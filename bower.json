@@ -17,7 +17,7 @@
     "vendor/assets"
   ],
   "dependencies": {
-    "jquery": "^3.0.0",
+    "jquery": "~2.2.4",
     "jquery-migrate": "~1.4.0",
     "bootstrap": "^3.3.6",
     "bootstrap-select": "^1.10.0",
