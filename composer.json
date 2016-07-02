@@ -1,11 +1,11 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "alexglue/larapstart",
+    "description": "The Laravel Based Boilerplate with admin UI",
+    "keywords": ["framework", "laravel", "larapstart", "alexglue", "admin", "rbac"],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.0.4",
+        "php": "5.5.*|7.0.*",
         "laravel/framework": "5.2.*",
         "doctrine/dbal": "^2.5",
         "laravelcollective/html": "5.2.*",
