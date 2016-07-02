@@ -7,6 +7,7 @@ Scaffolding by http://packalyst.com/packages/package/infyomlabs/laravel-generato
 RBAC by https://github.com/Zizaco/entrust
 gravatar https://github.com/creativeorange/gravatar
 Breadcrumbs by http://laravel-breadcrumbs.davejamesmiller.com/en/latest/start.html
+Socialite https://github.com/laravel/socialite
 
 ## How to generate new model from database:
 php artisan infyom:scaffold User --fromTable --tableName=users --save --prefix=admin
