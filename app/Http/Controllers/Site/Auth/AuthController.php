@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\Auth;
 
 use App\Models\User;
+use App\Http\Traits\AuthSocialite;
 use Validator;
 use App\Http\Controllers\Site\BaseController as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -26,7 +27,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins, AuthSocialite;
 
     /**
      * Where to redirect users after login / registration.
