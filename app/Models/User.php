@@ -150,4 +150,13 @@ class User extends Model
         //return $this->session()->orderBy('last_activity', 'desc')->first()->isActive();
         return CacheLastUserActivity::keyExists($this->id);
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function social()
+    {
+        return $this->hasMany(SocialUser::class);
+    }
 }
