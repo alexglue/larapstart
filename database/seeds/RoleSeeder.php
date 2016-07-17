@@ -27,10 +27,12 @@ class RoleSeeder extends Seeder
             'description'  => 'The General admin user'
         ]);
 
+/*
         $role->create([
             'name'         => 'manager',
             'display_name' => 'Content manager',
             'description'  => 'user with admin area access and managing permissions'
         ]);
+*/
     }
 }

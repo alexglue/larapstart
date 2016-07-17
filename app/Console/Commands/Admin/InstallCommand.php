@@ -2,6 +2,7 @@
 
     namespace App\Console\Commands\Admin;
 
+    use App\Models\User;
     use Illuminate\Console\Command;
     use Symfony\Component\Console\Input\InputOption;
     use Symfony\Component\Console\Input\InputArgument;
@@ -46,20 +47,39 @@
             \DB::beginTransaction();
             try {
                 $this->info('Welcome to the LarAppStart Installer');
-                $email     = $this->ask('Please enter the email for the administrator');
-                $password  = $this->secret('Please enter the password for the administrator');
                 $this->info('Please give us a minute while we install everything');
+                $this->info('Installing migrations');
+                $this->call('migrate:reset');
                 $this->call('migrate');
-                $this->info('Creating basic user and Roles');
-                $installer = new AdminInstaller;
-                $installer->install($email, $password);
+                $this->info('Creating basic user, roles and permissions');
+                $this->call('db:seed');
+
+                $email     = $this->ask('Please enter the email for the administrator', config( 'common.app.email.admin' ));
+                $password  = $this->secret('Please enter the password for the administrator');
+
+                /** @var User $user */
+                $user = \Auth::createUserProvider('user')
+                    ->retrieveByCredentials(
+                        [
+                            'name'=>'Administrator',
+                            'password' => 'password'
+                        ]
+                    );
+
+                $user->update(
+                    [
+                        'email'    => $email,
+                        'password' => bcrypt( $password )
+                    ]
+                );
+
                 \DB::commit();
                 $this->info('Thanks! we are done!');
             } catch (\Exception $e) {
                 \DB::rollback();
                 $this->error('Something went wrong!');
 
-                dd($e->getFile() . ':' . $e->getLine() . '/' . $e->getMessage());
+                \App::abort(-1, $e->getFile() . ':' . $e->getLine() . '/' . $e->getMessage());
             }
         }
 

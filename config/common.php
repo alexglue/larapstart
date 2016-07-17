@@ -5,9 +5,9 @@
             'name'      => 'LarAppStart',
             'name-mini' => 'LAS',
             'email' => [
-                'admin'   => 'alexglue@gmail.com',
-                'support' => 'alexglue+support@gmail.com',
-                'robot'   => 'alexglue+noreply@gmail.com'
+                'admin'   => 'admin@localhost.localdomain',
+                'support' => 'support@localhost.localdomain',
+                'robot'   => 'noreply@localhost.localdomain'
             ],
             'admin' => [
                 'skin' => 'skin-purple'

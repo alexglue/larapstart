@@ -23,11 +23,12 @@ class UserSeeder extends Seeder
         $userModel::create(
             [
                 'name'     => 'Administrator',
-                'email'    => config( 'common.app.email.admin' ),
+                'email'    => 'admin@localhost.localdomain',
                 'password' => bcrypt( 'password' )
             ]
         )->attachRole($adminRole);
 
+        /*
         $editorRole = $roleModel::whereName( 'manager' )->first();
         $userModel::create(
             [
@@ -44,5 +45,6 @@ class UserSeeder extends Seeder
                 'password' => bcrypt( 'password' )
             ]
         );
+        */
     }
 }

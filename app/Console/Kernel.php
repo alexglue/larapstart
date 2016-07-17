@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\Admin\InstallCommand::class,
-        //Commands\Admin\AdminAddRoleCommand::class,
+        Commands\Admin\AddEntrustCommand::class,
         //Commands\Admin\AdminAddPermissionCommand::class,
         //Commands\Admin\AdminAddUserCommand::class,
     ];

@@ -17,14 +17,14 @@ class PermissionSeeder extends Seeder
         /**
          * @var App\Models\Permission $permission
          * @var App\Models\Role       $adminRole
-         * @var App\Models\Role       $editorRole
+         * @var App\Models\Role       $managerRole
          */
         DB::table(config( 'entrust.permissions_table' ))->delete();
 
         $permissionModel = config( 'entrust.permission' );
         $roleModel       = config( 'entrust.role' );
         $adminRole       = $roleModel::whereName( 'admin' )->first();
-        $editorRole      = $roleModel::whereName( 'manager' )->first();
+        //$managerRole     = $roleModel::whereName( 'manager' )->first();
         $permission      = new $permissionModel();
 
 
@@ -75,7 +75,7 @@ class PermissionSeeder extends Seeder
         }
         $adminRole->attachPermissions($permissions);
 
-        $editorPermissions = $permissionModel::whereIn('name', ['admin.access', 'admin.users.list'])->get();
-        $editorRole->attachPermissions($editorPermissions);
+        //$managerPermissions = $permissionModel::whereIn('name', ['admin.access', 'admin.users.list'])->get();
+        //$managerRole->attachPermissions($managerPermissions);
     }
 }

@@ -79,6 +79,8 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereDeletedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserSession[] $session
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SocialUser[] $social
  */
 class User extends Model
 {
