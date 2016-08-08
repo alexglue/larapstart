@@ -102,8 +102,8 @@
                     $newUser->social()->save( $newSocialUser );
 
                     // Add role
-                    $role = Role::whereName('user')->first();
-                    $newUser->attachRole($role);
+                    //$role = Role::whereName('user')->first();
+                    //$newUser->attachRole($role);
 
                     $user = $newUser;
                 }
